@@ -11,10 +11,16 @@ protegeArquivo(basename(__FILE__));
                 <li> <a href="?m=usuarios&t=listar">Exibir</a>
             </ul>
         </li>
-        <li> <a class="item" href="#">Permissões</a>
+        <li> <a class="item" href="#">Serviços</a>
             <ul>
-                <li> <a href="?m=usuarios&t=incluir">Cadastrar</a>
-                <li> <a href="?m=usuarios&t=listar">Exibir</a>
+                <li> <a href="?m=services&t=incluir">Cadastrar</a>
+                <li> <a href="?m=services&t=listar">Exibir</a>
+            </ul>
+        </li>
+        <li> <a class="item" href="#">Categoria</a>
+            <ul>
+                <li> <a href="?m=cat&t=incluir">Cadastrar</a>
+                <li> <a href="?m=cat&t=listar">Exibir</a>
             </ul>
         </li>
         <li> <a href="?logoff=true">Sair</a></li>

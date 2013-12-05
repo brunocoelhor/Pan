@@ -66,6 +66,53 @@ switch ($tela){
         
         <?php
         break;
+        case 'listar':
+        echo '<h2>Serviços Cadastrados</h2>';
+        loadcss('data-table',NULL,TRUE);
+        loadjs('jquery-datatable');
+        ?>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#listaservices").dataTable({
+                    "sScrollY": "400px",
+                    "bPaginate": false,
+                    "aaSorting": [[0, "desc"]]
+                });
+            });
+        </script>
+        <table cellspacing="0" cellpadding="0" border="0" class="display" id="listaservices">
+            <thead>
+                <tr>
+                    <th>Nome</th><th>Descrição</th><th>Data de Criação</th><th>Data de Update</th><th>Preço</th><th>Ativo</th><th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <?php
+                    //aula 10 para arrumar e traduzir as tabelas 19:30 min 
+                    $service = new services();
+                    $service->selecionaTudo($service);
+                    while ($res = $service->retornaDados()){
+                        echo '<tr>';
+                        printf('<td>%s</td>', $res->name);
+                        printf('<td>%s</td>', $res->description);
+                        printf('<td class="center">%s</td>', date("d/m/y", strtotime($res->datecreate)));
+                        printf('<td class="center">%s</td>', date("d/m/y", strtotime($res->dateupdate)));
+                        printf('<td>%s</td>', $res->price);
+                        printf('<td class="center">%s</td>',  strtoupper($res->status));                        
+                        printf('<td class="center"><a href="?m=services&t=incluir" title="Novo Cadastro">'
+                                . '<img src="images/add.png" alt="Novo Cadastro" /></a>'
+                                . '<a href="?m=services&t=editar&id=%s" title="Editar">'
+                                . '<img src="images/edit.png" alt="Editar" /></a>'
+                                . '<a href="?m=services&t=excluir&id=%s" title="Excluir">'
+                                . '<img src="images/delete.png" alt="Excluir" /></a></td>', $res->id, $res->id, $res->id);
+                        echo '</tr>';
+                    }
+                    ?>
+            </tbody>
+        </table>
+        
+        <?php
+        break;
     
     default :
         echo '<p>Tela solicitada não existe.</p>';
