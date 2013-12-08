@@ -19,16 +19,3 @@ if(isset($_GET['t'])){
     </div>
 <?php include 'sidebar.php'; ?>
 <?php include 'footer.php'; ?>
-
-
-
-<!--/*require_once 'funcoes.php';
-verificaLogin();
-echo 'Eu sou o Painel.PHP';?>
-<p><a href="?logoff=true">Sair</a></p>
-<p><?php
-$sessao = new sessao();
-$sessao->printALL();
-?></p>-->
-
-

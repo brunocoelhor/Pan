@@ -1,7 +1,7 @@
 <?php
 //diretorio do sistema
 define("BASEPATH", dirname(__FILE__)."/");
-define("BASEURL", "http://localhost/Painel/");
+define("BASEURL", "http://localhost/Pan/");
 define("ADMURL", BASEURL."painel.php");
 define("CLASSESPATH", "classes/");
 define("MODULOSPATH", "modulos/");
